@@ -6,3 +6,4 @@ from .models import entry
 class HomeView(ListView):
     model = entry
     template_name='entries/index.html'
+    context_object_name = 'blog_entries'
