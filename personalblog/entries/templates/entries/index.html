@@ -8,11 +8,14 @@
             <div class="col-md-10 ">
               {% for entry in blog_entries %}
                 <div class="card mb-3">
-                  <img src="{% static 'entries/img/picture001.png' %}" class="img-fluid">
+                {% if entry.entry_image %}
+                  <img src="{{entry.entry_image.url}}" class="img-fluid">
+                {% endif %}
                     <div class="card-body">
                       <h5 class="card-title">{{entry.entry_title}}</h5>
-                      <p class="card-text">{{entry.entry_test | safe }}</p>
-                      <p class="card-text"><small class="text-muted">Last updated {{entry.entry_date}}</small></p>
+                      <p class="card-text">{{entry.entry_test|truncatechars:600|safe }}</p>
+                      <a href="{% url 'entry-detail' entry.pk %}" class="">Leer mas.</a>
+                      <p class="card-text"><small class="text-muted">Posted on {{entry.entry_date}}</small></p>
                     </div>
                 </div>
               {% endfor %}

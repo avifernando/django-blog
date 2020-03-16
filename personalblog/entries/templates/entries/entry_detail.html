@@ -1,0 +1,23 @@
+{% extends 'entries/base.html' %}
+{% load static %}
+<!-- Aca termina el NAVbar-->
+{% block content %}
+
+    <div class="container">
+        <div class="row justify-content-center mt-3">
+            <div class="col-md-10 ">
+                <div class="card mb-3">
+
+                  <img src="{{object.entry_image.url}}" class="img-fluid">
+                
+                    <div class="card-body">
+                      <h5 class="card-title">{{object.entry_title}}</h5>
+                      <p class="card-text">{{object.entry_test|safe }}</p>
+                      <p class="card-text"><small class="text-muted">Posted on {{object.entry_date}}</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}       
+ 
